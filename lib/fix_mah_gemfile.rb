@@ -1,4 +1,5 @@
 require "fix_mah_gemfile/version"
+require 'pathname'
 
 module FixMahGemfile
 
@@ -73,12 +74,12 @@ module FixMahGemfile
       File.open("Gemfile",'w') { |f| f.write(@gemfile.join("")) }
     end
     def self.usage
-      puts "\nUsage: #{$0} [--help] [--generate_rc] [path/to/rc_file]"
+      puts "Usage: #{Pathname.new($0).basename} [--help] [--generate_rc] [path/to/rc_file]"
       puts "   --help          : this help"
       puts "   --generate_rc   : creates a sample .fixgemfile_rc in the current directory"
       puts "   path/to/rc_file : [optional]\n"
       puts "This utility will look for a .fixgemfile_rc which consists of directives to modify the Gemfile"
-      puts "in the current directory.  An option argument can specify the path to an alternate rc file.\n"
+      puts "in the current directory.  An option argument can specify the path to an alternate rc file.\n\n"
     end
     def self.generate_sample_rc
       outfile = "./fixgemfile_rc"
