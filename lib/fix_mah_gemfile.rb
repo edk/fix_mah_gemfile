@@ -85,7 +85,7 @@ module FixMahGemfile
       outfile = "./fixgemfile_rc"
       file = <<-END
 # example .fixgemfile_rc
-FixMahGemfile::Process.new do
+FixMahGemfile::Processor.new do
   remove_gem 'looksee'
   change_gem_version 'libxml-ruby', :to => '~> 2.7'
   #add_gem 'therubyracer', "'~> 0.12', :require=>false", :above_gem => "guard"
@@ -93,9 +93,9 @@ FixMahGemfile::Process.new do
   remove_gem 'guard-less'
 end
 
-FixMahGemfile::Process.run "bundle"
-#FixMahGemfile::Process.run "bundle update libxml-ruby"
-#FixMahGemfile::Process.run "bundle update guard guard-less therubyracer"
+FixMahGemfile::Processor.run "bundle"
+#FixMahGemfile::Processor.run "bundle update libxml-ruby"
+#FixMahGemfile::Processor.run "bundle update guard guard-less therubyracer"
 END
     end
     def self.run str

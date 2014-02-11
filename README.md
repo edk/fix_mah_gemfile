@@ -10,7 +10,31 @@ didn't or couldn't push my locally needed changes upstream.
 
 ## Usage
 
-TODO: Write usage instructions here
+Change your directory to the project, where the Gemfile is available.  First generate a sample
+.fixgemfile_rc in the current directory with:
+
+   $ fix_mah_gemfile --generate_rc
+
+Then edit the .fixgemfile_rc with the local changes you'd like to apply when running the fix_mah_gemfile
+script.
+
+```ruby
+   $ fix_mah_gemfile
+   changing gem: args ["libxml-ruby", {:to=>"~> 2.6"}]... found at 147
+   gem 'libxml-ruby', '~> 2.6', :require => nil
+   removing therubyracer... found at 
+   Not found
+   removing guard-less... found at 
+   Not found
+   bundle
+   Using rake (10.0.4) 
+   Using Ascii85 (1.0.2) 
+   ...
+```
+
+Then before checking-in any changes, either do a git checkout Gemfile* or simply avoid commiting these
+local changes to your gemfile.
+
 
 ## Contributing
 
