@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib', 'fix_mah_gemfile'))
+require 'fix_mah_gemfile'
 
 if ARGV.include? "--help"
   FixMahGemfile.usage
