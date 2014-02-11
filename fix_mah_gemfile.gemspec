@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["eddyhkim@gmail.com"]
   spec.description   = %q{command-line script to modify and run bundler for you in one operation}
   spec.summary       = %q{command-line script to modify and run bundler for you in one operation}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/edk/fix_mah_gemfile"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

@@ -1,18 +1,10 @@
 # FixMahGemfile
 
-TODO: Write a gem description
+This gem provides a script that modifies the Gemfile and runs bundler in one step.  This
+came about because I needed to regularly make local modifications to a shared project, but
+didn't or couldn't push my locally needed changes upstream.
 
 ## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'fix_mah_gemfile'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
 
     $ gem install fix_mah_gemfile
 

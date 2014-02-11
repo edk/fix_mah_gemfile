@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib', 'fix_mah_gemfile'))
+
+if ARGV.include? "--help"
+  FixMahGemfile.usage
+  exit 0
+end
+
+if ARGV.include? "--generate_rc"
+  FixMahGemfile.generate_sample_rc
+  exit 0
+end
+
+if !File.exist?("./Gemfile")
+  puts "Cant find Gemfile in current directory to modify"
+  FixMahGemfile.usage
+  exit 1
+end
+
+if ARGV[0]
+  load ARGV[0]
+elsif File.exist?(".fixgemfile_rc")
+  load ".fixgemfile_rc"
+else
+  FixMahGemfile.usage
+  exit 1
+end
+
+exit 0
+
