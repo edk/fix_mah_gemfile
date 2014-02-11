@@ -1,20 +1,20 @@
 #!/usr/bin/env ruby
 
-require 'fix_mah_gemfile'
+require 'fix_mah_gemfile.rb'
 
 if ARGV.include? "--help"
-  FixMahGemfile.usage
+  FixMahGemfile::Processor.usage
   exit 0
 end
 
 if ARGV.include? "--generate_rc"
-  FixMahGemfile.generate_sample_rc
+  FixMahGemfile::Processor.generate_sample_rc
   exit 0
 end
 
 if !File.exist?("./Gemfile")
   puts "Cant find Gemfile in current directory to modify"
-  FixMahGemfile.usage
+  FixMahGemfile::Processor.usage
   exit 1
 end
 
@@ -23,7 +23,7 @@ if ARGV[0]
 elsif File.exist?(".fixgemfile_rc")
   load ".fixgemfile_rc"
 else
-  FixMahGemfile.usage
+  FixMahGemfile::Processor.usage
   exit 1
 end
 
