@@ -97,7 +97,7 @@ FixMahGemfile::Processor.run "bundle"
 #FixMahGemfile::Processor.run "bundle update libxml-ruby"
 #FixMahGemfile::Processor.run "bundle update guard guard-less therubyracer"
 END
-      File.new(outfile, "w") { |f| f.write(file) }
+      File.open(outfile, "w") { |f| f.write(file) }
     end
     def self.run str
       puts str
