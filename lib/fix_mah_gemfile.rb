@@ -82,7 +82,7 @@ module FixMahGemfile
       puts "in the current directory.  An option argument can specify the path to an alternate rc file.\n\n"
     end
     def self.generate_sample_rc
-      outfile = "./fixgemfile_rc"
+      outfile = "./.fixgemfile_rc"
       file = <<-END
 # example .fixgemfile_rc
 FixMahGemfile::Processor.new do
@@ -97,6 +97,7 @@ FixMahGemfile::Processor.run "bundle"
 #FixMahGemfile::Processor.run "bundle update libxml-ruby"
 #FixMahGemfile::Processor.run "bundle update guard guard-less therubyracer"
 END
+      File.new(outfile, "w") { |f| f.write(file) }
     end
     def self.run str
       puts str
