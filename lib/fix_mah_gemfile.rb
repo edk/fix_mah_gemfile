@@ -18,8 +18,8 @@ module FixMahGemfile
     end
     def add_gem gemname, *args
       log "adding #{gemname} #{args.inspect}... "
-      where = args[1].keys.first
-      puts "where #{where} #{args[1][where]}"
+      where = args[1].keys.first rescue 'end_of_gemfile'
+      #puts "where #{where} #{args[1][where] rescue 'error'}"
       newline = ([" gem '#{gemname}'", args[0]].join(", ")) << "\n"
       case where.to_s
       when 'above_gem'
@@ -27,6 +27,9 @@ module FixMahGemfile
         gemfile.insert(linenum, newline)
       when 'below_gem'
         linenum = gem_at_line(args[1][where])
+      when 'end_of_gemfile'
+        str=["gem '#{gemname}'", "#{args.first.to_s.gsub(/^{|}$/,'')}".strip].reject{|s|s.nil? || s.size==0 }.join(', ')
+        gemfile << "#{str}\n"
       else
         puts "don't know how to handle directive #{where}"
         exit 1
